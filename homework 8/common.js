@@ -43,3 +43,35 @@ window.onload = function () {
 	document.body.appendChild(table);
 }
 
+
+var arr = ["September","October","November","December","January","Fabruar",
+"March","April","May","June","Jull","August"];
+
+document.write("<ul><li>");
+
+var res = arr.join("</li><li>");
+document.write(res);
+
+document.write("</li></ul>");
+
+
+
+//сортировка массива в обратном порядке как метод reverse //custom
+
+var arr = [1,2,3,4,5,6,7,8,9];
+
+function reversInPlaceWhile(arr) {
+    var rm = arr.length - 1;
+    var i = 0;
+    var temp; 
+    while (i < rm - i) {
+        temp = arr[i];
+        arr[i] = arr[rm - i];
+        arr[rm - i] = temp;
+        i++;
+    }
+    return arr;
+}
+
+console.log(reversInPlaceWhile(arr));
+

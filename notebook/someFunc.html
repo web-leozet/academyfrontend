@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>someFunc</title>
+	<script type="text/javascript">
+
+		window.onclick = function () {
+
+			function someFunc(){
+				var a = document.getElementById("quantity").value;
+				if (isNaN(a) || a == 0) {
+					alert('Вы ввели не число,попробуйте снова');
+				}
+				document.getElementById("box").innerText = 'Число которое вы ввели  ' + a + ';';
+
+				var b = a.split('');
+				document.getElementById("box_b").innerText = 'Мы разбили это число на цифры  '  + b + ';';
+
+				var len = b.length;
+				document.getElementById("box_c").innerText = 'Количеств цифр в этом числе  ' + len + ';';
+
+				var sum = 0;
+				for (var i = 0; i < b.length; i++) {
+					sum = sum + Number(b[i]);
+				}
+				document.getElementById("box_s").innerText = 'Сумма цифр в этом числе  ' + sum + ';';
+
+				var res = 1;
+				for (var i = 0; i < b.length; i++) {
+					res = res * b[i];
+				}
+				document.getElementById("box_d").innerText = 'Произведение цифр в этом числе   ' + res + ';';
+
+
+				var ww = b.join('').split('');
+				var rev = ww.reverse();
+				document.getElementById("box_e").innerText = 'Реверс цифр в этом числе  ' + rev + ';';
+			}
+			document.getElementById("press").onclick = someFunc;
+
+/*
+	Задача №4
+Напишите программу, где пользователь вводит любое целое положительное число. 
+А программа суммирует все числа от 1 до введенного пользователем числа.
+Например:
+  если пользователь введет число 3. 
+  Программа должна посчитать сумму чисел от 1 до 3, то есть 1 +2+3 
+  и выдать ответ 6.
+  если пользователь введет число 5.
+   Программа должна посчитать сумму чисел от 1 до 5, то есть 1+2+3+4+5
+   и выдать ответ 15.*/
+
+
+
+   function call_add() {
+   	var a = document.getElementById("add_id_user").value;
+   	var sum = 0;
+   	for (var i = 1; i <= a; i++) {
+   		sum += i;
+   	}
+   	document.getElementById("ass").innerText = 'Сумма чисел ' + sum + ';';
+   }
+   document.getElementById("submit").onclick = call_add;
+
+
+/*   Пользователь вводит подряд 20 разных чисел
+   (ввод осуществляется всех чисел только в 1 переменную),
+   нужно посчитать сколько было инверсий. Пример:
+   52536489241685479715=9 инверсий, 
+   к примеру 5 2 - это инверсия то есть
+   то число которое стоит слева больше того числа которое справа.*/
+
+
+   function redBull() {
+   	var bull = document.getElementById("add_user").value;
+   	console.log(bull);
+   	var bulls = bull.split("");
+   	console.log(bulls);
+   	var arr = bulls;
+   	console.log(arr);
+   	console.log(bulls);
+   	temp = '';
+   	tempTwo = '';
+   	sum = '';
+
+   	for (var i = 0; i < arr.length; i++) {
+   		if (i%2 != 0) {
+   			temp = temp + arr[i];
+   			console.log(i);
+   		}
+   	}
+   	for (var j = 0; j < arr.length; j++) {
+   		if (j%2 == 0) {
+   			tempTwo = tempTwo + arr[j];
+   			console.log(j);
+   		}
+   	}
+   	document.getElementById("note").innerText = temp;
+   	document.getElementById("noteTwo").innerText = tempTwo;
+   	document.getElementById("sum").innerText = sum;
+   }
+   document.getElementById("record").onclick = redBull;
+ }
+</script>
+</head>
+<body>
+	
+<input id="quantity" type="text" name="" value="" placeholder="Операции с числами">
+
+	<p id="box"></p>
+	<p id="box_b"></p>
+	<p id="box_c"></p>
+	<p id="box_d"></p>
+	<p id="box_e"></p>
+	<p id="box_s"></p>
+
+	<button id="press">Записать</button>
+
+	<!-- //////////////////////////// -->
+
+	<br/>
+	<hr/>
+
+	<label for="add_id_user">Lorem ipsum.</label><br/>
+	<input type="text" id="add_id_user" placeholder="Сумма чисел до числа 'N' ">
+	<p id="ass"></p>
+	<button id="submit" type="submit" >submit</button>
+
+
+	<br/>
+	<hr/>
+
+	<input id="add_user" type="text" name="" style="margin-top: 10px" pl placeholder="Пока пусто">
+	<p id="note"></p>
+	<p id="noteTwo"></p>
+	<p id="sum"></p>
+	<button id="record">Start</button>
+
+
+	<br/>
+	<hr/>
+
+
+</body>
+</html>
