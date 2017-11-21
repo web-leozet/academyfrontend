@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>program</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	<script type="text/javascript">
+
+
+		window.onload = function() {
+			var list = [];
+			var person = {
+				name: "",
+				sur: "",
+				age: "",
+				sex: "",
+				langs: ["js", "css", "html","php"]
+			};
+
+			var exit = false;
+
+			do {
+				var todo = +prompt("Enter action: 1 - Add person; 2 - Show list; 3 - EXit ");
+				switch(todo) {
+					case 1: {
+						addPerson();    
+						break;
+					}
+					case 2: {
+						showList();
+						break;
+					}
+					case 3:
+					case 0: {
+						exit = true;
+					}
+				}
+			} while(!exit)
+
+			function addPerson() {
+				var person = new Person();
+				person.name = prompt("Enter name");
+				list.push(person);
+			}
+			function showList() {
+				var table = document.createElement("table");    
+				for(var index = 0; index < list.length; index ++) {
+					var row = document.createElement("tr");
+					table.appendChild(row);
+					console.log(index, list, list[index]);
+					for (property in list[index]) {
+						var td = document.createElement("td");
+						td.innerText = list[index][property];
+						row.appendChild(td);
+					}
+				}
+				document.body.appendChild(table);
+			}
+		}
+
+
+
+
+
+	</script>
+
+
+
+
+
+
+
+
+
+
+	
+</body>
+</html>

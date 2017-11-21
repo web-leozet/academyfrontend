@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dz3</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	<style>
+	td,th { border: 1px solid red;}
+</style> 
+
+
+<main>
+
+	<div id="group"></div>
+
+	
+</main>
+<script>
+
+	// таблица
+
+
+	window.onload = function() {}
+
+
+	var table = document.createElement('table');
+	for (var i = 0 ; i < 10; i++) {
+		var row = document.createElement('tr');
+		table.appendChild(row);      
+		for (var j = 0 ; j < 10; j++) {
+			var col = document.createElement('td');
+			col.innerText = '-' + 'A' + '-';
+			table.appendChild(col);    
+		}
+	}
+	document.body.appendChild(table);
+
+	document.write('<br/>');
+
+
+	// таблица 2
+
+
+
+	var table = document.createElement('table');
+	var caption = document.createElement('caption')
+	caption.innerText = 'Это таблица';
+	table.appendChild(caption);
+	
+	for (var i = 0 ; i < 1; i++) {
+		var row = document.createElement('tr');
+		table.appendChild(row);        
+		for (var f = 0; f < 5; f++) {
+			var th = document.createElement('th')
+
+			table.appendChild(th);
+			th.innerHTML = 'Свойство';
+		}
+	}
+
+	for (var i = 0 ; i < 10; i++) {
+		var row = document.createElement('tr');
+		table.appendChild(row);        
+		for (var j = 0 ; j < 5; j++) {
+			var col = document.createElement('td');
+			col.innerText = '-' + j + '-';
+			table.appendChild(col);    
+		}
+	}
+	document.body.appendChild(table);
+
+
+
+	// список
+	
+
+	var list = document.createElement('ul');
+	for (var i = 0; i < 10; i++) {
+		var str = document.createElement('li');
+		list.appendChild(str);
+		str.innerText = "hello list";
+		
+	}
+	document.body.appendChild(list);
+
+
+
+
+	var ul = document.createElement('ul');
+	ul.id = 'box';
+	for (var i = 0; i < 10; i++) {
+		var str = document.createElement('li');
+		ul.appendChild(str);
+		str.innerText = "hi list";
+	}
+	document.body.appendChild(ul);
+
+
+	/////////////////////////////////////
+
+
+	var parent = document.createElement('div');
+	parent.className = "cool";
+	parent.innerHTML = "<strong>Ура!</strong>Вложенность---родитель вывод только с js ";
+	document.body.appendChild(parent);
+
+	var childs = document.createElement('div');
+	childs.className = "cool_cool";
+	childs.innerHTML = "<strong>Ура!</strong>Вложенность---ребёнок вывод только с js";
+	parent.appendChild(childs);
+
+
+		///////////////////////////////////
+
+		var div = document.createElement('div');
+		div.className = "ball"
+		div.innerHTML = "<strong>Ура!</strong> Первый div \# group Вложенность но уже в написанный html div с \#droup";
+		group.appendChild(div);
+
+
+		var div = document.createElement('div');
+		div.className = "football"
+		div.innerHTML = "<strong>Ура!</strong> Второй div \# group Вложенность но уже в написанный html div с \#droup";
+		group.appendChild(div);
+
+
+
+
+
+	</script>
+	<script src="common.js" type="text/javascript"></script>
+</body>
+</html>
