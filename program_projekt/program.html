@@ -3,53 +3,63 @@
 <head>
 	<meta charset="UTF-8">
 	<title>program</title>
-	<link rel="stylesheet" type="text/css" href="main.css">
+	<style type="text/css">
+	button{
+		margin-top: 10px;
+		padding: 5px 15px;
+	}
+</style>
 </head>
 <body>
 	<script type="text/javascript">
 
 
+
 		window.onload = function() {
+
 			var list = [];
-			var person = {
-				name: "",
-				sur: "",
-				age: "",
-				sex: "",
-				langs: ["js", "css", "html","php"]
-			};
 
-			var exit = false;
+			console.log(list);
 
-			do {
-				var todo = +prompt("Enter action: 1 - Add person; 2 - Show list; 3 - EXit ");
-				switch(todo) {
-					case 1: {
-						addPerson();    
-						break;
-					}
-					case 2: {
-						showList();
-						break;
-					}
-					case 3:
-					case 0: {
-						exit = true;
+			var clearInput = function () {
+				var elementinput = document.getElementsByTagName("input");
+				for (var i = 0; i < elementinput.length; i++) {
+					var elem = elementinput[i];
+					if (!elem) continue; {
+						elementinput[i].value = "";
 					}
 				}
-			} while(!exit)
-
-			function addPerson() {
-				var person = new Person();
-				person.name = prompt("Enter name");
-				list.push(person);
 			}
-			function showList() {
-				var table = document.createElement("table");    
+			
+			function Person() {
+				this.name = name;
+				this.sur = sur;
+				this.age = age;
+				this.sex = sex;
+				//langs: ["js", "css", "html","php"] ??????????????????????
+			}
+
+			document.getElementById("submit").addEventListener("click", function (e) {
+				if (document.getElementById("name").value.length == 0 || document.getElementById("sur").value.length == 0 || document.getElementById("age").value.length == 0 || document.getElementById("sex").value.length == 0) {
+					e.preventDefault();
+					alert("Заполните поля")
+				}else{
+					var person = new Person();
+					person.name = document.getElementById("name").value;
+					person.sur = document.getElementById("sur").value;
+					person.age = document.getElementById("age").value;
+					person.sex = document.getElementById("sex").value;
+					list.push(person);
+					console.log(list);
+					clearInput();
+				}
+			}, false);
+
+			function showList(list) {
+				var table = document.createElement("table");
 				for(var index = 0; index < list.length; index ++) {
 					var row = document.createElement("tr");
 					table.appendChild(row);
-					console.log(index, list, list[index]);
 					for (property in list[index]) {
 						var td = document.createElement("td");
 						td.innerText = list[index][property];
@@ -58,7 +68,21 @@
 				}
 				document.body.appendChild(table);
 			}
+			document.getElementById("showList").onclick = function () {
+				showList(list);
+			}
+
 		}
+
+
+
+
+
+
+
+
+		//var str = "js css html php"
+		//var arlan = str.split(" ");
 
 
 
@@ -70,11 +94,21 @@
 
 
 
+	<input id="name" type="text"  placeholder="Name">
+	<input id="sur" type="text" placeholder="Sur">
+	<input id="age" type="text"  placeholder="Age">
+	<input id="sex" type="text"  placeholder="Sex"><br/>
+	<button id="submit">Submit</button>
+	<button id="showList">showList</button>
 
 
 
 
 
-	
+
+
+
+
+
 </body>
 </html>

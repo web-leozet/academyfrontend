@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+
+
+		//двумерная матрица
+
+var table = new Array(10);
+
+for (var i = 0; i < table.length; i++) {
+	table[i] = new Array(10);
+}
+for (var row = 0; row < table.length; row++) {
+	for (var col = 0; col < table[row].length; col++) {
+		if ((row + col) % 2 == 1) 
+			table[row][col] = "<img src='../img/white.png' width='50' height='50'/>";
+		else
+			table[row][col] = "<img src='../img/black.png' width='50' height='50'/>";
+	}
+}
+
+table[5][3] = "<img src = '../img/parquet3.jpg' width='50' height='50'>"
+
+for (var row = 0; row < table.length; row++) {
+	for (var col = 0; col < table[row].length; col++) {
+		document.write(table[row][col]);
+	}
+	document.write("<br/>");
+}
+
+var beet = table[5][3];
+document.write(beet + "<hr/>");
+	</script>
+	
+</body>
+</html>

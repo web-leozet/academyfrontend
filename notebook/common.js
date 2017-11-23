@@ -80,11 +80,11 @@ console.log(newArrayLine(20));
 function count(counter) {
 	counter--;
 
-	document.write("<img src = 'img/1.jpg' width = '50' height = '50'>" + counter + "<br/>");
+	document.write("<img src = '../img/1.jpg' width = '50' height = '50'>" + counter + "<br/>");
 	if (counter != 0) {
 		count(counter);
 	}
-	document.write("<img src = 'img/2.jpg' width = '50' height = '50'>" + counter + "<br/>");
+	document.write("<img src = '../img/2.jpg' width = '50' height = '50'>" + counter + "<br/>");
 }
 
 count(5);

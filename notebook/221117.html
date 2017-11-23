@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+
+	form.pos{
+		position: absolute;
+		top: 20%;
+		left: 20%;
+		border: 1px solid green;
+		padding: 20px 40px;
+	}
+	.reg{
+		padding: 5px 5px;
+	}
+	input{
+		text-align: center;
+	}
+	.tabs{
+		padding: 5px 25px;
+		margin: 10px 0;
+	}
+</style>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		function CALC(a,b) {
+			var sun = a + b;
+			var nul = a * b;
+			return{
+				sun: sun,
+				nul: nul
+			};
+		}
+		var res = (CALC(10,5));
+		console.log(res);
+		console.log(CALC(2,2).sun);
+
+	</script>
+
+
+	<div class="wraper">
+		<form class="pos" action="">
+			<input type="text" id="names" class="reg" placeholder="Введите своё имя"><br/>
+			<button id="buttons" class="tabs">Pull</button>
+		</form>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>max number</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+
+
+		  //arguments Вернуть Максимальное значение аргументов массива
+
+		  function max() {
+ 	var maxValue = Number.NEGATIVE_INFINITY; //  = или arguments[0]
+ 	for (var i = 0; i < arguments.length; i++) 
+ 		if (arguments[i] > maxValue) 
+ 			maxValue = arguments[i];
+ 		return maxValue;	
+ 	}
+
+ 	var res = max(350,350,35,2,45,85,115,205,3,6,9);
+ 	document.write("Максимальное значение аргументов массива = " + res + "<br/>");
+ 	console.log(res);
+ </script>
+
+</body>
+</html>
