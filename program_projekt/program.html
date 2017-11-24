@@ -4,111 +4,172 @@
 	<meta charset="UTF-8">
 	<title>program</title>
 	<style type="text/css">
-	button{
-		margin-top: 10px;
-		padding: 5px 15px;
+	.form{
+		margin-top: 100px;
+		text-align: center;
+		color: #fff;
+	}
+	.form button{
+		width: 140px;
+		margin: 10px 20px;
+		padding: 10px 15px;
+		background-color: #365899;
+		color: #fff;
+		border-radius: 2px;
+	}
+	input{
+		padding: 10px;
+		border-radius: 2px;
+		outline: none;
+		border: 1px solid #000;
+		margin: 3px;
+	}
+	table {
+		width: 100%;
+		font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+		font-size: 14px;
+		border-radius: 10px;
+		border-spacing: 0;
+		text-align: center;
+	}
+	th {
+		background: #BCEBDD;
+		color: white;
+		text-shadow: 0 1px 1px #2D2020;
+		padding: 10px 20px;
+	}
+	th, td {
+		border-style: solid;
+		border-width: 0 1px 1px 0;
+		border-color: white;
+	}
+	th:first-child {
+		border-top-left-radius: 10px;
+	}
+	th:last-child {
+		border-top-right-radius: 10px;
+		border-right: none;
+	}
+	td {
+		padding: 10px 20px;
+		background: #F8E391;
+	}
+	tr:last-child td:first-child {
+		border-radius: 0 0 0 10px;
+	}
+	tr:last-child td:last-child {
+		border-radius: 0 0 10px 0;
+	}
+	tr td:last-child {
+		border-right: none;
 	}
 </style>
-</head>
-<body>
-	<script type="text/javascript">
 
+<script type="text/javascript">
 
+	window.onload = function() {
 
-		window.onload = function() {
+		var list = [];
 
-			var list = [];
+		var head = ["Name","Surname","Age","Sex","Langs"];
+		console.log(head);
 
-			console.log(list);
-
-			var clearInput = function () {
-				var elementinput = document.getElementsByTagName("input");
-				for (var i = 0; i < elementinput.length; i++) {
-					var elem = elementinput[i];
-					if (!elem) continue; {
-						elementinput[i].value = "";
-					}
+		var clearInput = function () {
+			var elementInput = document.getElementsByTagName("input");
+			for (var i = 0; i < elementInput.length; i++) {
+				var elem = elementInput[i];
+				if (!elem) continue; {
+					elementInput[i].value = "";
 				}
 			}
-			
-			function Person() {
-				this.name = name;
-				this.sur = sur;
-				this.age = age;
-				this.sex = sex;
-				//langs: ["js", "css", "html","php"] ??????????????????????
-			}
+		}
 
-			document.getElementById("submit").addEventListener("click", function (e) {
-				if (document.getElementById("name").value.length == 0 || document.getElementById("sur").value.length == 0 || document.getElementById("age").value.length == 0 || document.getElementById("sex").value.length == 0) {
-					e.preventDefault();
-					alert("Заполните поля")
+		function Person() {
+			this.name = name;
+			this.sur = sur;
+			this.age = age;
+			this.sex = sex;
+			this.langs = langs; 
+		}
+
+		document.getElementById("submit").addEventListener("click", function (e) {
+			if (document.getElementById("name").value.length == 0 || document.getElementById("sur").value.length == 0 || document.getElementById("age").value.length == 0 || document.getElementById("sex").value.length == 0) {
+				e.preventDefault();
+					alert("Заполните поля")  // проверяем поля формы на заполнение
 				}else{
 					var person = new Person();
 					person.name = document.getElementById("name").value;
 					person.sur = document.getElementById("sur").value;
 					person.age = document.getElementById("age").value;
 					person.sex = document.getElementById("sex").value;
+					person.langs = document.getElementById("langs").value;
+					var str = person.langs;
+					person.langs = str.split(" ");
 					list.push(person);
 					console.log(list);
-					clearInput();
+					clearInput();  // очищаем поля формы
 				}
 			}, false);
 
-			function showList(list) {
-				var table = document.createElement("table");
-				for(var index = 0; index < list.length; index ++) {
-					var row = document.createElement("tr");
-					table.appendChild(row);
-					for (property in list[index]) {
-						var td = document.createElement("td");
-						td.innerText = list[index][property];
-						row.appendChild(td);
-					}
-				}
-				document.body.appendChild(table);
+		function showList(list) {
+			var table = document.createElement("table");
+			var tableHead = document.createElement("tr")
+			for (var i = 0; i < head.length; i++) {
+				var tableHeads = document.createElement("th")
+				tableHeads.innerHTML = head[i];
+				tableHead.appendChild(tableHeads);
 			}
-			document.getElementById("showList").onclick = function () {
-				showList(list);
-			}
+			table.appendChild(tableHead);
 
+			for(var index = 0; index < list.length; index ++) {
+				var row = document.createElement("tr");
+				table.appendChild(row);
+				for (property in list[index]) {
+					console.log(property);
+					var td = document.createElement("td");
+					td.innerText = list[index][property];
+					row.appendChild(td);
+				}
+			}
+			document.body.appendChild(table);
 		}
 
+		document.getElementById("showList").onclick = function () {
+			showList(list);
+		}
 
+/*		function persCards(){
+			var tables = document.createElement("tables")	
+			for (var i = 0; i < list.length; i++) {
+				var trs = document.createElement("tr");
+				tables.appendChild(trs);
+				for (property in list[i]) {
+					var tds= document.createElement("td");
+					tds.innerText = list[i][property];
+					trs.appendChild(tds);
+				}
+			}
+			document.body.appendChild(tables);
+		}
 
+		document.getElementById("perscard").onclick = function(){
+			persCards();
+		}*/
 
+	}
+</script>
+</head>
 
-
-
-
-		//var str = "js css html php"
-		//var arlan = str.split(" ");
-
-
-
-
-
-	</script>
-
-
-
-
-
-	<input id="name" type="text"  placeholder="Name">
-	<input id="sur" type="text" placeholder="Sur">
-	<input id="age" type="text"  placeholder="Age">
-	<input id="sex" type="text"  placeholder="Sex"><br/>
-	<button id="submit">Submit</button>
-	<button id="showList">showList</button>
-
-
-
-
-
-
-
-
-
-
+<body>
+	<div class="form">
+		<input id="name" type="text"  placeholder="Name">
+		<input id="sur" type="text" placeholder="Sur">
+		<input id="age" type="text"  placeholder="Age">
+		<input id="sex" type="text"  placeholder="Sex">
+		<input id="langs" type="text"  placeholder="langs"><br/>
+		<button id="submit">ADD PERSON</button>
+		<button id="showList">SHOWLIST</button>
+		<!-- <button id="perscard">PersCard</button> -->
+	</div>
 </body>
-</html>
+</html> 	

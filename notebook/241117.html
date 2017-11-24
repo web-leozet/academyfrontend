@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Привет я документ</title>
+	<style type="text/css">
+	body{
+		background-color: silver;
+	}
+</style>
+<script type="text/javascript">
+	function robot() {
+		alert('Кнопка нажата');
+	}
+			// Анонимные функции
+
+			(function function_name(argument) {
+				var message = "Привет!"
+				alert(message);
+			})();
+
+			(function () {
+				var message = "Привет Всем!";
+				alert(message);
+			})();
+
+		// end
+
+		/*document.write("<p> Cookie </p> " + document.cookie);
+		document.write("<p> bgColor </p>" + document.bgColor);
+		document.write("<p> title:  </p>"  + document.title);
+		document.write("<p> LastModified </p>"  + document.LastModified);*/
+
+/*		window.onload = function(){
+			var textUpdate = document.getElementById("up");
+			textUpdate.innerHTML = "Hello World";
+		}*/
+
+		window.onload = function(){
+			document.getElementById("answerButton").onclick = function(){
+				var radioButtons = document.getElementsByName("answer");
+				console.log(radioButtons);
+				var res = "";
+				for (var i = 0; i < radioButtons.length; i++) {
+					res = res + radioButtons[i].value + " " + radioButtons[i].checked + "\n";
+				}
+				console.log(res);
+			}
+
+			var colorParagraphs = document.getElementsByTagName("p");
+			for (var j = 0; j < colorParagraphs.length; j++) {
+				colorParagraphs[j].style.color = "red";
+			}
+		}
+		
+		
+
+
+</script>
+</head>
+<body>
+
+	Да<input type="radio" name="answer" value="Да">
+	Нет<input type="radio" name="answer" value="Нет">
+	Не знаю<input type="radio" name="answer" value="Не знаю">
+
+	<input type="button" id="answerButton" value="Получить ответ">
+
+	<p id="up">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo quasi quibusdam repellat assumenda modi ratione enim, labore maiores atque obcaecati?</p>
+
+	<!-- 	<input type="button" name="" value="button" onclick="robot()"> -->
+</body>
+</html>	
