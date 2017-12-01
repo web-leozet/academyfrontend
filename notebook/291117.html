@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+
+
+
+			// Заполнение карточки обекта
+
+/*	var person = {
+		name: "",
+		sname: "",
+		age: "",
+		sex: "",
+	}
+
+	for (property in person) {
+		console.log(property);
+		person[property] = prompt("Введите:  " + property);
+		console.log(person);
+	}*/
+
+
+
+
+	//prototype Прототип Площадь прямоугольника
+	
+	function Rectangle(w, h) {
+		this.width = w;
+		this.height = h;
+	}
+
+	//Метод вычисляет площадь прямоугольника
+
+	Rectangle.prototype.getArea = function () {
+		return this.width * this.height;
+	}
+
+
+
+
+	//Метод возвращает строку, представляющую объект
+
+	Rectangle.prototype.toString = function () {
+		return "W" + this.width + "H" + this.height;
+	}
+
+	//метод  возвращает примитивное значение указанного объекта
+
+	Rectangle.prototype.valueOf = function () {
+		return this.getArea();
+	}
+
+	// метод для проверки равенства обектов
+	
+	Rectangle.prototype.equals = function (otherObj) {
+		/*if (this.width === otherObj.width && this.height === otherObj.height) {
+			return true;
+		}
+		return false;*/
+		/*return this.width === otherObj.width && this.height === otherObj.height ? true : false;*/ //тернарка с return
+		return this.width === otherObj.width && this.height === otherObj.height; // просто с return
+	}
+
+
+
+	// как передать значения через promt?
+
+	var rect1 = new Rectangle(50, 100);
+	var rect2 = new Rectangle(60, 100);
+	var rect3 = new Rectangle(80, 300);
+
+	var res = rect1.equals(rect2);
+	console.log(res);
+	document.write("rect1 === rect2 " + res + "<br/>");
+
+	document.write(rect1.hasOwnProperty("width") + "<br/>");// проверяем есть ли у Property свойство width если есть то true
+	document.write(rect1.hasOwnProperty("left") + "<br/>"); // тут false свойства нет
+	document.write(("width" in rect1) + "<br/>");// то же но с in или true или false  включая прототипы
+	document.write(("left" in rect1) + "<br/>");// то же но с in или true или false  включая прототипы
+	document.write(rect2 + "<br/>");
+	document.write(rect3 + "<br/>");
+	document.write("Сумма прямоугольника rect1 и rect2 =  " + (rect1 + rect2) + "<br/>");
+	document.write("Площадь прямоугольника равна =  " + rect1.getArea() + "<br/>");
+	document.write("Площадь прямоугольника равна =  " + rect2.getArea() + "<br/>");
+	document.write("Площадь прямоугольника равна =  " + rect3.getArea() + "<br/>");
+
+
+
+	// Минимальное значение (число) аргументов 
+
+	function max() {
+		var maxValue = arguments[0];
+		for (var i = 0; i < arguments.length; i++) 
+			if (arguments[i] > maxValue) 
+				maxValue = arguments[i];
+			return maxValue;	
+		}
+
+		var maxmass = max(22,35,2,45,-20,85,115,205,350,3,6,9);
+		console.log(maxmass);
+		document.write("Минимальное значение аргументов = " + maxmass + "<br/>");
+		console.log(maxmass);
+
+
+		// Минимальное значение аргументов массива
+
+		var array = [10,20,50,1,6,40,-30,-4];
+		var i = array.length;
+		var min = array[0];
+		console.log(min);
+		while (i--) {
+			if (array[i] < min) {
+				min = array[i];
+			}
+		}
+		console.log(min);
+
+
+
+
+
+/*	var arr1 = [1,2,3,4,5];
+	var arr2 = [6,7,8,9,10];
+
+	function mergeArrays(arr1, arr2) {
+		return arr1.concat(arr2);
+	}
+	console.log(mergeArrays(arr1, arr2));*/
+
+/*	var arr1 = [1,3,5,7,9];
+	var arr2 = [10,8,6,4,2];
+
+	var numericSort = function (a, b) {
+		if (a > b) {
+			return 1;
+		}
+		if (a < b) {
+			return -1;
+		}
+	}
+
+	function mergeArrays(argument) {
+		return arr1.concat(arr2).sort(numericSort);
+	}
+
+	console.log(mergeArrays(arr1, arr2));*/
+
+
+/*	var arr1 = [1,3,5,7,9,11,12];
+	var arr2 = [1,2,3,4,5,10,12];
+  arr1.splice(0, 3);
+  var res = arr1.pop();
+  var numericSort = function (a, b) {
+		if (a > b) {
+			return 1;
+		}
+		if (a < b) {
+			return -1;
+		}
+	}
+  function mergeArrays(arr1, arr2) {
+  	return arr1.concat(arr2).sort(numericSort);
+  }*/
+
+	//console.log(mergeArrays(arr1, arr2));
+
+
+/*	var arr1 = [1,3,3,5,7,9,11,12];
+	var arr2 = [1,2,3,4,5,10,12];
+	var res = arr1
+	arr1.sort();
+	for (var i = 0; i <= arr1.length; i++) {
+		for (var j = 0; j <= arr1.length; j++) {
+			if (arr1[i] == arr1[j]) {
+				arr1.splice(arr1[i])
+			}
+		}
+	}
+
+	console.log(arr1);*/
+
+
+
+/*var arr1 = [1,3,3,5,7,9,11,12,12,12],
+	i = arr1.length;
+	arr1.sort(numericSort2);
+	while (i--) {
+		if (arr1[i] == arr1[i-1]) {
+			arr1.splice(i, 1);
+		}
+	}
+	console.log(arr1);
+
+
+	var arr2 = [1,1,2,3,2,3,4,5,10,12];
+	j = arr2.length;
+	arr2.sort(numericSort2);
+	while (j--) {
+		if (arr2[j] == arr2[j-1]) {
+			arr2.splice(j, 1);
+		}
+	}
+	console.log(arr2);
+
+	function mergeArrays(arr1, arr2) {
+		return arr1.concat(arr2).sort(numericSort2);
+	}
+
+	console.log(mergeArrays(arr1, arr2));*/
+
+
+
+
+/*	function sortMass() {
+		var a = 0;
+		a.sort(numericSort2);
+		while (i--) {
+			if (a[i] == a[i-1]) {
+				a.splice(i, 1);
+			}
+		}
+	}*/
+
+
+
+
+	/*var arr1 = [1,3,3,-5,5,7,9,-50,11,12,12,12];
+	var arr2 = [1,1,2,3,2,3,4,-100,5,10,12];
+
+	function mergeArrays (arr1, arr2) {
+		function numericSort(a,b){
+			return a - b;
+		}
+		var res = arr1.concat(arr2).sort(numericSort);
+		var i = res.length;
+		console.log(i);
+		while (i--) {
+			if (res[i] == res[i-1]) {
+				res.splice(i, 1);
+			}
+		}
+		console.log(res);
+	}
+	mergeArrays(arr1, arr2);*/
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

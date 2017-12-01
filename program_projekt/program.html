@@ -72,7 +72,6 @@
 		var list = [];
 
 		var head = ["Name","Surname","Age","Sex","Langs"];
-		console.log(head);
 
 		var clearInput = function () {
 			var elementInput = document.getElementsByTagName("input");
@@ -105,6 +104,7 @@
 					person.langs = document.getElementById("langs").value;
 					var str = person.langs;
 					person.langs = str.split(" ");
+					//console.log(person.langs);
 					list.push(person);
 					console.log(list);
 					clearInput();  // очищаем поля формы
@@ -125,7 +125,6 @@
 				var row = document.createElement("tr");
 				table.appendChild(row);
 				for (property in list[index]) {
-					console.log(property);
 					var td = document.createElement("td");
 					td.innerText = list[index][property];
 					row.appendChild(td);
@@ -137,29 +136,9 @@
 		document.getElementById("showList").onclick = function () {
 			showList(list);
 		}
-
-/*		function persCards(){
-			var tables = document.createElement("tables")	
-			for (var i = 0; i < list.length; i++) {
-				var trs = document.createElement("tr");
-				tables.appendChild(trs);
-				for (property in list[i]) {
-					var tds= document.createElement("td");
-					tds.innerText = list[i][property];
-					trs.appendChild(tds);
-				}
-			}
-			document.body.appendChild(tables);
-		}
-
-		document.getElementById("perscard").onclick = function(){
-			persCards();
-		}*/
-
 	}
 </script>
 </head>
-
 <body>
 	<div class="form">
 		<input id="name" type="text"  placeholder="Name">

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		var arr1 = [1,3,3,-5,5,7,9,-50,11,12,12,12];
+		var arr2 = [1,1,2,3,2,3,4,-100,5,10,12];
+
+		function mergeArrays (arr1, arr2) {
+			function numericSort(a,b){
+				return a - b;
+			}
+			var res = arr1.concat(arr2).sort(numericSort);
+			var fo = res.length;
+			console.log(fo);
+			for (var i = fo; i > fo.length; i--) {
+				if (fo[i] == fo[i-1]) {
+					fo.splice(i, 1);
+				}
+			}
+			console.log(fo);
+		}
+		mergeArrays(arr1, arr2);
+
+
+
+
+
+	</script>
+
+</body>
+</html>

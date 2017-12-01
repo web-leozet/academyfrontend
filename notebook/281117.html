@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<script type="text/javascript">
+
+		// Вывести последнее чётное число
+		
+
+		var nthEven = function (n) {
+			return (n - 1) * 2;
+		}
+		console.log(nthEven(100));
+
+
+
+
+
+
+
+		// Существует ли треугольник
+
+
+		var isTriangle = function(a,b,c){
+			if ((a <= b + c && b <= a + c && c <= b + a) || (a,b,c <= 0)) {
+				alert('Треугольник существует');
+			}
+			else{
+				alert("Треугольник не существует");
+			}
+			return;
+		}
+
+		isTriangle(10,20,20);
+
+
+
+
+
+	</script>
+</body>
+</html>
