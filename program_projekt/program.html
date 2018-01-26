@@ -70,6 +70,7 @@
 	window.onload = function() {
 
 		var list = [];
+		console.log(list);
 
 		var head = ["Name","Surname","Age","Sex","Langs"];
 
@@ -83,7 +84,8 @@
 			}
 		}
 
-		function Person() {
+
+		function Person(name,sur,age,sex,langs) {
 			this.name = name;
 			this.sur = sur;
 			this.age = age;
@@ -91,27 +93,32 @@
 			this.langs = langs; 
 		}
 
+
 		document.getElementById("submit").addEventListener("click", function (e) {
 			if (document.getElementById("name").value.length == 0 || document.getElementById("sur").value.length == 0 || document.getElementById("age").value.length == 0 || document.getElementById("sex").value.length == 0) {
 				e.preventDefault();
 					alert("Заполните поля")  // проверяем поля формы на заполнение
 				}else{
-					var person = new Person();
-					person.name = document.getElementById("name").value;
-					person.sur = document.getElementById("sur").value;
-					person.age = document.getElementById("age").value;
-					person.sex = document.getElementById("sex").value;
-					person.langs = document.getElementById("langs").value;
-					var str = person.langs;
-					person.langs = str.split(" ");
-					//console.log(person.langs);
+					var name = document.getElementById("name").value;
+					var sur = document.getElementById("sur").value;
+					var age = document.getElementById("age").value;
+					var sex = document.getElementById("sex").value;
+					var langs = document.getElementById("langs").value;
+					var str = langs;
+					langs = str.replace(' ','').split(',');
+					console.log(langs);
+
+					var person = new Person(name,sur,age,sex,langs);
+					console.log(person);
+
 					list.push(person);
-					console.log(list);
+
+
 					clearInput();  // очищаем поля формы
 				}
 			}, false);
 
-		function showList(list) {
+		function showList() {
 			var table = document.createElement("table");
 			var tableHead = document.createElement("tr")
 			for (var i = 0; i < head.length; i++) {
@@ -133,9 +140,17 @@
 			document.body.appendChild(table);
 		}
 
+/*		function removeChildren(elem) {
+			while (elem.lastChild) {
+				elem.removeChild(elem.lastChild);
+			}
+		}*/
+
 		document.getElementById("showList").onclick = function () {
-			showList(list);
+			showList();
+			console.log(list);
 		}
+
 	}
 </script>
 </head>
@@ -148,7 +163,7 @@
 		<input id="langs" type="text"  placeholder="langs"><br/>
 		<button id="submit">ADD PERSON</button>
 		<button id="showList">SHOWLIST</button>
-		<!-- <button id="perscard">PersCard</button> -->
+		<button id="removetable">removetable</button>
 	</div>
 </body>
 </html> 	

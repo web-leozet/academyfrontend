@@ -8,26 +8,6 @@
 	
 	<script type="text/javascript">
 
-
-
-			// Заполнение карточки обекта
-
-/*	var person = {
-		name: "",
-		sname: "",
-		age: "",
-		sex: "",
-	}
-
-	for (property in person) {
-		console.log(property);
-		person[property] = prompt("Введите:  " + property);
-		console.log(person);
-	}*/
-
-
-
-
 	//prototype Прототип Площадь прямоугольника
 	
 	function Rectangle(w, h) {
@@ -40,9 +20,6 @@
 	Rectangle.prototype.getArea = function () {
 		return this.width * this.height;
 	}
-
-
-
 
 	//Метод возвращает строку, представляющую объект
 
@@ -89,39 +66,6 @@
 	document.write("Площадь прямоугольника равна =  " + rect1.getArea() + "<br/>");
 	document.write("Площадь прямоугольника равна =  " + rect2.getArea() + "<br/>");
 	document.write("Площадь прямоугольника равна =  " + rect3.getArea() + "<br/>");
-
-
-
-	// Минимальное значение (число) аргументов 
-
-	function max() {
-		var maxValue = arguments[0];
-		for (var i = 0; i < arguments.length; i++) 
-			if (arguments[i] > maxValue) 
-				maxValue = arguments[i];
-			return maxValue;	
-		}
-
-		var maxmass = max(22,35,2,45,-20,85,115,205,350,3,6,9);
-		console.log(maxmass);
-		document.write("Минимальное значение аргументов = " + maxmass + "<br/>");
-		console.log(maxmass);
-
-
-		// Минимальное значение аргументов массива
-
-		var array = [10,20,50,1,6,40,-30,-4];
-		var i = array.length;
-		var min = array[0];
-		console.log(min);
-		while (i--) {
-			if (array[i] < min) {
-				min = array[i];
-			}
-		}
-		console.log(min);
-
-
 
 
 

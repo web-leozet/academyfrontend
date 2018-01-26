@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+<script type="text/javascript">
+	
+	window.onload = function () {
+
+		var timer = setTimeout(myMessage, 5000);
+
+		document.getElementsByTagName('button')[0].onclick = function () {
+			clearTimeout(timer);
+		}
+
+
+
+
+
+		function myMessage() {
+			alert('Hello World');
+		}
+
+
+	}
+
+</script>
+
+</head>
+<body>
+
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, possimus?</p>
+	<button>отмена</button>
+</body>
+</html>

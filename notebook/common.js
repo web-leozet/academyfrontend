@@ -92,34 +92,6 @@ console.log(newArrayLine(20));
  	document.write("<hr/>");
 
 
-//callback function
-
-var multiply = function (a,b) {
-	return a * b;
-}
-
-var divide = function (a,b) {
-	return a / b;
-}
-
-var add = function (a,b) {
-	return a + b;
-}
-
-var minus = function  (a,b) {
-	return a - b;
-}
-
-			// callback
-
-			function show(callBack, a,b) {
-				document.write(callBack(a,b));
-			}
-
-			show(add, 20,30);
-			show(multiply, 5,5);
-
-
 			//object
 
 			var insts = {

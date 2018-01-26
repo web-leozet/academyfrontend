@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>min and the maximum value of array arguments</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+				// min and max значение аргументов массива от знака < and >
+
+				var array = [10,20,50,1,6,40,-30,-4];
+				var i = array.length;
+				var min = array[0];
+				while (i--) {
+					if (array[i] < min) {
+						min = array[i];
+					}
+				}
+				console.log(min);
+</script>
+
+</body>
+</html>

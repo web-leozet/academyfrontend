@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>object card</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		var person = {
+			name: "",
+			sname: "",
+			age: "",
+			sex: "",
+		}
+
+		for (property in person) {
+			console.log(property);
+			person[property] = prompt("Введите:  " + property);
+			console.log(person);
+		}
+		
+	</script>
+	
+</body>
+</html>
